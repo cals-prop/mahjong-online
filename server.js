@@ -1,6 +1,6 @@
 // Mahjong Online: server tanpa dependensi (Node >=18). Server memegang semua kartu agar adil.
 const http=require('http'),fs=require('fs'),path=require('path'),crypto=require('crypto');
-const PORT=process.env.PORT||3000,FAST=!!process.env.MJ_FAST,D=ms=>FAST?5:ms,rooms={};
+const PORT=process.env.PORT||3000,FAST=false,D=ms=>FAST?5:ms,rooms={};
 const cnt=h=>{const c=Array(34).fill(0);h.forEach(k=>{if(k<34)c[k]++});return c};
 function sets(c,i,m){while(i<34&&!c[i])i++;if(i>=34)return true;
  if(m!=1&&c[i]>=3){c[i]-=3;const r=sets(c,i,m);c[i]+=3;if(r)return true}
